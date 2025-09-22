@@ -43,52 +43,60 @@
 - Paths shown below assume single project - adjust based on plan.md structure
 
 ## Phase 3.1: Setup
-- [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T001 Create React TypeScript project structure per implementation plan
+- [ ] T002 Initialize project with Vite, React, TypeScript dependencies
+- [ ] T003 [P] Configure ESLint, Prettier, and TypeScript strict mode
+- [ ] T004 [P] Setup accessibility testing tools (axe-core, jest-axe)
+- [ ] T005 [P] Configure performance monitoring (Web Vitals, bundle analyzer)
 
 ## Phase 3.2: Tests First (TDD) ⚠️ MUST COMPLETE BEFORE 3.3
 **CRITICAL: These tests MUST be written and MUST FAIL before ANY implementation**
-- [ ] T004 [P] Contract test POST /api/users in tests/contract/test_users_post.py
-- [ ] T005 [P] Contract test GET /api/users/{id} in tests/contract/test_users_get.py
-- [ ] T006 [P] Integration test user registration in tests/integration/test_registration.py
-- [ ] T007 [P] Integration test auth flow in tests/integration/test_auth.py
+- [ ] T006 [P] Behavior test for user interactions using React Testing Library
+- [ ] T007 [P] Accessibility tests for keyboard navigation and screen readers
+- [ ] T008 [P] Visual regression tests for UI components
+- [ ] T009 [P] Performance tests for Core Web Vitals compliance
+- [ ] T010 [P] Mobile responsiveness tests for touch interactions
 
 ## Phase 3.3: Core Implementation (ONLY after tests are failing)
-- [ ] T008 [P] User model in src/models/user.py
-- [ ] T009 [P] UserService CRUD in src/services/user_service.py
-- [ ] T010 [P] CLI --create-user in src/cli/user_commands.py
-- [ ] T011 POST /api/users endpoint
-- [ ] T012 GET /api/users/{id} endpoint
-- [ ] T013 Input validation
-- [ ] T014 Error handling and logging
+- [ ] T011 [P] React components with TypeScript interfaces in src/components/
+- [ ] T012 [P] Accessible form components with ARIA labels and validation
+- [ ] T013 [P] Mobile-first responsive layouts with CSS-in-JS/CSS Modules
+- [ ] T014 [P] State management with Context API or Redux Toolkit
+- [ ] T015 API integration with proper error handling and loading states
+- [ ] T016 Input validation with user-friendly error messages
+- [ ] T017 Semantic HTML structure for screen reader compatibility
 
 ## Phase 3.4: Integration
-- [ ] T015 Connect UserService to DB
-- [ ] T016 Auth middleware
-- [ ] T017 Request/response logging
-- [ ] T018 CORS and security headers
+- [ ] T018 Connect components to state management
+- [ ] T019 Implement routing with React Router
+- [ ] T020 Add error boundaries for graceful error handling
+- [ ] T021 Integrate performance monitoring and analytics
+- [ ] T022 Setup progressive web app features (if applicable)
 
 ## Phase 3.5: Polish
-- [ ] T019 [P] Unit tests for validation in tests/unit/test_validation.py
-- [ ] T020 Performance tests (<200ms)
-- [ ] T021 [P] Update docs/api.md
-- [ ] T022 Remove duplication
-- [ ] T023 Run manual-testing.md
+- [ ] T023 [P] Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- [ ] T024 [P] Mobile device testing (iOS Safari, Android Chrome)
+- [ ] T025 Performance optimization (code splitting, lazy loading)
+- [ ] T026 [P] Accessibility audit with automated and manual testing
+- [ ] T027 [P] Update documentation with component usage examples
+- [ ] T028 Bundle size optimization and analysis
+- [ ] T029 Final UX review and usability testing
 
 ## Dependencies
-- Tests (T004-T007) before implementation (T008-T014)
-- T008 blocks T009, T015
-- T016 blocks T018
-- Implementation before polish (T019-T023)
+- Setup (T001-T005) before tests (T006-T010)
+- Tests (T006-T010) before implementation (T011-T017)
+- Core implementation (T011-T017) before integration (T018-T022)
+- Integration before polish (T023-T029)
+- T014 (state management) blocks T018 (component integration)
 
 ## Parallel Example
 ```
-# Launch T004-T007 together:
-Task: "Contract test POST /api/users in tests/contract/test_users_post.py"
-Task: "Contract test GET /api/users/{id} in tests/contract/test_users_get.py"
-Task: "Integration test registration in tests/integration/test_registration.py"
-Task: "Integration test auth in tests/integration/test_auth.py"
+# Launch T006-T010 together:
+Task: "Behavior test for user interactions using React Testing Library"
+Task: "Accessibility tests for keyboard navigation and screen readers"
+Task: "Visual regression tests for UI components"
+Task: "Performance tests for Core Web Vitals compliance"
+Task: "Mobile responsiveness tests for touch interactions"
 ```
 
 ## Notes

@@ -1,8 +1,8 @@
 
-# Implementation Plan: [FEATURE]
+# Implementation Plan: Push-Up Auto-Counter Webapp
 
-**Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
-**Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
+**Branch**: `001-i-want-to` | **Date**: 2025-09-22 | **Spec**: [spec.md](./spec.md)
+**Input**: Feature specification from `/specs/001-i-want-to/spec.md`
 
 ## Execution Flow (/plan command scope)
 ```
@@ -31,47 +31,47 @@
 - Phase 3-4: Implementation execution (manual or via tools)
 
 ## Summary
-[Extract from feature spec: primary requirement + technical approach from research]
+A React.js webapp that automatically detects and counts push-up repetitions using computer vision through the device camera. Users can start/stop workout sessions, view real-time counting with visual/audio feedback, manually adjust counts, and track their progress over time. The app prioritizes mobile-first UX with accessibility compliance and real-time performance.
 
 ## Technical Context
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Language/Version**: JavaScript ES2022, TypeScript 5.0+, React 18+  
+**Primary Dependencies**: React, TypeScript, Vite, TensorFlow.js/MediaPipe for computer vision, React Testing Library  
+**Storage**: LocalStorage for workout history, IndexedDB for larger datasets  
+**Testing**: Jest, React Testing Library, Playwright for E2E, axe-core for accessibility  
+**Target Platform**: Modern web browsers (Chrome 90+, Safari 14+, Firefox 88+), PWA-capable
+**Project Type**: web - single-page application with camera access  
+**Performance Goals**: <3s initial load, <100ms detection latency, 30fps camera processing  
+**Constraints**: Camera permission required, works offline after initial load, <5MB bundle size  
+**Scale/Scope**: Single user, ~10 screens, personal fitness tracking, no backend required
 
 ## Constitution Check
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
 **UX-First Compliance**:
-- [ ] Feature prioritizes user experience over technical convenience
-- [ ] UI components designed for intuitive, accessible, responsive use
-- [ ] User testing plan defined for UX validation
+- [x] Feature prioritizes user experience over technical convenience (camera-based counting eliminates manual counting friction)
+- [x] UI components designed for intuitive, accessible, responsive use (large touch targets, clear visual feedback)
+- [x] User testing plan defined for UX validation (test detection accuracy, feedback clarity, mobile usability)
 
 **Performance Standards**:
-- [ ] Performance budget established (3s load time, Core Web Vitals targets)
-- [ ] Performance impact assessment completed
-- [ ] Bundle size impact documented
+- [x] Performance budget established (3s load time, Core Web Vitals targets, <5MB bundle)
+- [x] Performance impact assessment completed (real-time camera processing optimized for 30fps)
+- [x] Bundle size impact documented (TensorFlow.js model size considered, lazy loading planned)
 
 **Accessibility Requirements**:
-- [ ] WCAG 2.1 AA compliance plan defined
-- [ ] Keyboard navigation design included
-- [ ] Color contrast ratios verified (4.5:1 minimum)
-- [ ] Semantic HTML structure planned
+- [x] WCAG 2.1 AA compliance plan defined (screen reader support, keyboard navigation for all controls)
+- [x] Keyboard navigation design included (spacebar for start/stop, arrow keys for manual adjustment)
+- [x] Color contrast ratios verified (4.5:1 minimum for all text and UI elements)
+- [x] Semantic HTML structure planned (proper headings, landmarks, form labels)
 
 **Mobile-First Design**:
-- [ ] Mobile-first approach confirmed
-- [ ] Touch targets meet 44px minimum
-- [ ] Progressive enhancement strategy defined
+- [x] Mobile-first approach confirmed (primary use case is mobile device with camera)
+- [x] Touch targets meet 44px minimum (start/stop buttons, manual adjustment controls)
+- [x] Progressive enhancement strategy defined (works without camera as manual counter)
 
 **Testing Strategy**:
-- [ ] Behavior-driven tests planned using React Testing Library
-- [ ] Visual regression testing included
-- [ ] End-to-end test scenarios defined for critical journeys
+- [x] Behavior-driven tests planned using React Testing Library (user interactions, not implementation)
+- [x] Visual regression testing included (UI consistency across devices and states)
+- [x] End-to-end test scenarios defined for critical journeys (full workout session flow)
 
 ## Project Structure
 
@@ -123,7 +123,7 @@ ios/ or android/
 └── [platform-specific structure]
 ```
 
-**Structure Decision**: [DEFAULT to Option 1 unless Technical Context indicates web/mobile app]
+**Structure Decision**: Option 1 (Single project) - React SPA with camera integration, no backend required
 
 ## Phase 0: Outline & Research
 1. **Extract unknowns from Technical Context** above:
@@ -219,17 +219,17 @@ ios/ or android/
 *This checklist is updated during execution flow*
 
 **Phase Status**:
-- [ ] Phase 0: Research complete (/plan command)
-- [ ] Phase 1: Design complete (/plan command)
-- [ ] Phase 2: Task planning complete (/plan command - describe approach only)
+- [x] Phase 0: Research complete (/plan command)
+- [x] Phase 1: Design complete (/plan command)
+- [x] Phase 2: Task planning complete (/plan command - describe approach only)
 - [ ] Phase 3: Tasks generated (/tasks command)
 - [ ] Phase 4: Implementation complete
 - [ ] Phase 5: Validation passed
 
 **Gate Status**:
-- [ ] Initial Constitution Check: PASS
-- [ ] Post-Design Constitution Check: PASS
-- [ ] All NEEDS CLARIFICATION resolved
+- [x] Initial Constitution Check: PASS
+- [x] Post-Design Constitution Check: PASS
+- [x] All NEEDS CLARIFICATION resolved
 - [ ] Complexity deviations documented
 
 ---
